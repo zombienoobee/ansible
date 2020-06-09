@@ -1,0 +1,11 @@
+---
+- hosts: galaxyservers
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+    - name: shutdown the Linux servers
+      shell: sleep 10 && /sbin/shutdown -h now
+      async: 300
+      poll: 0
+      become: true
