@@ -2,6 +2,6 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: ~/sample.txt
+      src: /tmp/galaxy
       dest: /tmp 
       force: no
