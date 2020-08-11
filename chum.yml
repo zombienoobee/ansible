@@ -4,5 +4,5 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: /tmp/galaxy
+      src: /tmp/galaxy/
       dest: /tmp
