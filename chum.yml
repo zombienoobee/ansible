@@ -1,9 +1,8 @@
-- name: copy files and folders
-  hosts: all
+- hosts: all
   become: true
   become_user: root
- 
   tasks:
+  - name: Ansible copy file force
     copy:
-    src: /tmp/galaxy
-    dest: /tmp
+      src: /tmp/galaxy
+      dest: /tmp
