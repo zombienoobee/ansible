@@ -1,0 +1,8 @@
+- hosts: all
+  gather_facts: no
+  vars:
+    src_path: "/tmp/galaxy"
+    des_path: "/tmp/"
+  tasks:
+  - name: Ansible copy files remote to remote
+    shell: 'cp -r {{ src_path }}/. {{ des_path }}'
