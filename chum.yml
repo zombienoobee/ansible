@@ -1,1 +1,7 @@
-test
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: ~/sample.txt
+      dest: /tmp 
+      force: no
