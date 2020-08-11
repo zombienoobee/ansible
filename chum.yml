@@ -3,9 +3,7 @@
   become: true
   become_user: root
  
-tasks:
-  - name: Ansible copy file force
+  tasks:
     copy:
-      src: /tmp/galaxy
-      dest: /tmp 
-      force: no
+    src: /tmp/galaxy
+    dest: /tmp
