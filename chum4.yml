@@ -1,0 +1,8 @@
+- name: run tasks on all hosts
+  hosts: all
+  tasks:
+    - name: change directory then run shell command
+      shell: echo "This is my world" >chum.txt
+#      shell: ./install.sh -n --custom_rc
+      args:
+        chdir: /tmp/cent
