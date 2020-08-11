@@ -1,0 +1,29 @@
+# testing Ansible file module
+
+- name: run tasks on all hosts
+  hosts: all
+  tasks:
+    - name: ensure the directory exists
+      file:                               # File module
+        path: /tmp/cent56                 # required
+        state: directory                  # Creates directory if not present at the specified path
+      
+# next task        
+
+    - name: copy files into destination folder
+      copy:
+        src: /tmp/galaxy/
+        dest: /tmp/cent56/
+
+# next task
+
+    - name: run the desired command
+#      shell: .\install.sh -n --custom_rc
+      shell: echo -e "jumma chumma"
+      args: 
+        chdir: /tmp/cent56
+
+# next task
+
+    - name: run the desired command
+      shell: adinfo -v && adinfo 
