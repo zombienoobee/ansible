@@ -3,8 +3,6 @@
   tasks:
     - name: change directory then run shell command
       shell: mkdir -p /tmp/cent
-      args:
-        chdir: /tmp/cent
 #     
     - name: change directory then run shell command
       shell: echo "This is my world" >chum.txt
