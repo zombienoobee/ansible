@@ -12,8 +12,8 @@
 
     - name: copy files into destination folder
       copy:
-        src: /tmp/galaxy/
-        dest: /tmp/cent56/
+        src=/tmp/galaxy/
+        dest=/tmp/cent56/
 
 # next task
 
