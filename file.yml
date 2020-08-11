@@ -1,0 +1,11 @@
+# testing Ansible file module
+
+- name: run tasks on all hosts
+  hosts: all
+  tasks:
+    - name: ensure the directory exists
+      file:                               # File module
+        path: /tmp/cent56                 # required
+        state: directory                  # Creates directory if not present at the specified path
+        
+        
