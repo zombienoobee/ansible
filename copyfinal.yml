@@ -42,8 +42,8 @@
 # change directory to /tmp/centri and than run the command e.g. adinfo -v > confirm.txt
     - name: Change the working directory to somedir/ before executing the command.
       shell: |
-      adinfo -v > /scratch/centri_log/confirm.txt
-      adinfo >> /scratch/centri_log/confirm.txt
+        adinfo -v > /scratch/centri_log/confirm.txt
+        adinfo >> /scratch/centri_log/confirm.txt
       args:
         chdir: /tmp/centri/
 
