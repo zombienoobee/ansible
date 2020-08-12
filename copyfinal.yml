@@ -39,17 +39,17 @@
       args:
         chdir: /tmp/centri
       register: shell_output
-      
+
+#
     - name: debug shell_output  
       debug: var=shell_output
 
-# change directory to /tmp/centri and than run the command e.g. adinfo -v > confirm.txt
-    - name: Change the working directory to somedir/ before executing the command.
+# running multiple shell commands
+    - name: run two shell commands
       shell: |
-        adinfo -v > /scratch/centri_log/confirm.txt
+        adinfo -v >> /scratch/centri_log/confirm.txt
         adinfo >> /scratch/centri_log/confirm.txt
-      args:
-        chdir: /tmp/centri/
+      
 
 
 #    - name: Recursively remove directory
