@@ -16,7 +16,7 @@
         src: /scratch/centri                      # To copy the whole folder don't add the trailing slash "/"
         remote_src: true                          # To confirm Ansible about the remote source location
         dest: /tmp/                               # Remote destination path
-#       local_follow: no
+        local_follow: no
 #       follow: no
         mode: 0755                                # set the permisions at destination folder only (not to files inside)
         force: yes                                # If yes the remote files will be replaced when contents are different than the source
