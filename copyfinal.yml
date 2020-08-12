@@ -12,12 +12,29 @@
         
     - name: Using Ansible copy module for copying directory 
       copy:
-        src: /scratch/centri/install.sh           # To copy a single file
-        src: /scratch/centri                      # To copy the whole folder don't add the trailing slash "/"
+#        src: /scratch/centri/install.sh           # To copy a single file
+        src: /mnt/data/software/centrify/test      # To copy the whole folder don't add the trailing slash "/"
         remote_src: true                          # To confirm Ansible about the remote source location
-        dest: /tmp/                               # Remote destination path
+        dest: /tmp/centri                         # Remote destination path
         mode: 0755                                # set the permisions at destination folder only (not to files inside)
         force: yes                                # If yes the remote files will be replaced when contents are different than the source
 
 # Note: this mehod doesn't copy symlinks and doesn't overwrite permissions on files... the mode is only chaning permission on 
 # the top directory
+    - name: Recursively change ownership of a directory
+      file:
+        path: /tmp/centri
+        recurse: yes
+        owner: root
+        group: users
+        mode: '0777'
+
+#RUN SOME SHELL COMMANDS
+#
+#
+
+
+#    - name: Recursively remove directory
+#      file:
+#        path: /tmp/centri
+#        state: absent
