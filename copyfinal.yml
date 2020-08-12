@@ -14,7 +14,7 @@
       copy:
 #        src: /scratch/centri/install.sh           # To copy a single file
         src: /mnt/data/software/centrify/test      # To copy the whole folder don't add the trailing slash "/"
-        remote_src: true                          # To confirm Ansible about the remote source location
+#        remote_src: true                          # To confirm Ansible about the remote source location
         dest: /tmp/centri                         # Remote destination path
         local_follow: no
         follow: no
