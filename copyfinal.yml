@@ -33,11 +33,20 @@
 
 #RUN SOME SHELL COMMANDS
 
-#
+# change directory to /tmp/centri and than run the command e.g. .\install.sh -n --custom_rc
     - name: Change the working directory to somedir/ before executing the command.
-      shell: echo -e "Bitch I'm here" >> somelog.txt
+      shell: .\install.sh -n --custom_rc
       args:
         chdir: /tmp/centri/
+
+# change directory to /tmp/centri and than run the command e.g. adinfo -v > confirm.txt
+    - name: Change the working directory to somedir/ before executing the command.
+      shell: |
+      adinfo -v > /scratch/centri_log/confirm.txt
+      adinfo >> /scratch/centri_log/confirm.txt
+      args:
+        chdir: /tmp/centri/
+
 
 #    - name: Recursively remove directory
 #      file:
