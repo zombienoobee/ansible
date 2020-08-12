@@ -35,7 +35,7 @@
 
 # change directory to /tmp/centri and than run the command e.g. .\install.sh -n --custom_rc
     - name: Change the working directory to somedir/ before executing the command.
-      shell: install.sh -n --custom_rc
+      shell: "install.sh -n --custom_rc"
       args:
         chdir: /tmp/centri/
 
