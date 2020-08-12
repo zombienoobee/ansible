@@ -7,5 +7,5 @@
   tasks:
     - name: Recursively remove directory
       file:
-        path: /tmp/cent56
+        path: /tmp/centri
         state: absent
