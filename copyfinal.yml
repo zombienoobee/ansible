@@ -32,9 +32,12 @@
         mode: '0777'
 
 #RUN SOME SHELL COMMANDS
-#
-#
 
+#
+    - name: Change the working directory to somedir/ before executing the command.
+      shell: echo -e "Bitch I'm here" >> somelog.txt
+      args:
+        chdir: /tmp/centri/
 
 #    - name: Recursively remove directory
 #      file:
