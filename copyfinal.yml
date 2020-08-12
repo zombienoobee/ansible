@@ -18,7 +18,7 @@
         dest: /tmp/                               # Remote destination path
 #       local_follow: no
         follow: no
-#        mode: 0755                                # set the permisions at destination folder only (not to files inside)
+        mode: 0755                                # set the permisions at destination folder only (not to files inside)
         force: yes                                # If yes the remote files will be replaced when contents are different than the source
 
 # Note: this mehod doesn't copy symlinks and doesn't overwrite permissions on files... the mode is only chaning permission on 
@@ -36,7 +36,7 @@
 #
 
 
-#    - name: Recursively remove directory
-#      file:
-#        path: /tmp/centri
-#        state: absent
+    - name: Recursively remove directory
+      file:
+        path: /tmp/centri
+        state: absent
