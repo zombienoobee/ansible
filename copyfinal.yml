@@ -38,6 +38,10 @@
       shell: sh "/tmp/centri/install.sh -n --custom_rc"
       args:
         chdir: /tmp/centri/
+      register: shell_output
+      
+    - name: debug shell_output  
+      debug: var=shell_output
 
 # change directory to /tmp/centri and than run the command e.g. adinfo -v > confirm.txt
     - name: Change the working directory to somedir/ before executing the command.
