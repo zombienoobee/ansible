@@ -35,9 +35,9 @@
 
 # change directory to /tmp/centri and than run the command e.g. .\install.sh -n --custom_rc
     - name: Change the working directory to somedir/ before executing the command.
-      shell: sh "/tmp/centri/install.sh -n --custom_rc"
+      shell: /bin/bash /tmp/centri/install.sh -n --custom_rc
       args:
-        chdir: /tmp/centri/
+        chdir: /tmp/centri
       register: shell_output
       
     - name: debug shell_output  
