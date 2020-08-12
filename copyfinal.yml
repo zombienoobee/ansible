@@ -13,12 +13,12 @@
     - name: Using Ansible copy module for copying directory 
       copy:
 #        src: /scratch/centri/install.sh          # To copy a single file
-        src: /scratch                            # To copy the whole folder don't add the trailing slash "/"
+        src: /scratch/centri                      # To copy the whole folder don't add the trailing slash "/"
         remote_src: true                          # To confirm Ansible about the remote source location
-        dest: /tmp/centri                         # Remote destination path
+        dest: /tmp/                               # Remote destination path
 #       local_follow: no
         follow: no
-        mode: 0755                                # set the permisions at destination folder only (not to files inside)
+#        mode: 0755                                # set the permisions at destination folder only (not to files inside)
         force: yes                                # If yes the remote files will be replaced when contents are different than the source
 
 # Note: this mehod doesn't copy symlinks and doesn't overwrite permissions on files... the mode is only chaning permission on 
