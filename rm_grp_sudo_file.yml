@@ -1,0 +1,9 @@
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+  - name: Make sure group wheel is not in the sudoers configuration
+    lineinfile:
+      path: /etc/sudoers
+      state: present
+      regexp: '^%chacha'
