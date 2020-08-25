@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: yes
+  
+  
+  tasks:
+    - name: gather centrify info
+      shell: |
+        echo $HOSTNAME 
+        adinfo -v  
+        adinfo  
+        echo -e "*****************************************************" 
+      register: shell_out  
+    - debug: var=shell_out.stdout_lines  
