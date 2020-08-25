@@ -6,4 +6,4 @@
     lineinfile:
       path: /etc/sudoers
       state: absent
-      regexp: '^chachacha ALL=(ALL) NOPASSWD: ALL'
+      regexp: '^chachacha'
