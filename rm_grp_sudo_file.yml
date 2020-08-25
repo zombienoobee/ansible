@@ -7,3 +7,5 @@
       path: /etc/sudoers
       state: present
       regexp: '^%chacha'
+      insertafter: EOF
+      validate: 'visudo -cf %s'
