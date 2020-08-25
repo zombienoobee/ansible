@@ -5,7 +5,7 @@
   - name: Make sure group wheel is not in the sudoers configuration
     lineinfile:
       path: /etc/sudoers
-      state: present
+      state: absent
       regexp: 'XxX'
       line: 'chachacha ALL=(ALL) NOPASSWD: ALL'
       insertafter: EOF
