@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: no
+  
+  
+  tasks:
+    - name: Execute a command using the shell module
+      shell: /bin/bash /tmp/centri/install.sh -n --custom_rc
+      args:
+        chdir: /tmp/centri
