@@ -1,11 +1,17 @@
 ---
-- hosts: all
+- hosts: all      #add the host group that you want to shutdown and this should not be "all" if not doing site wide maintenance
   remote_user: root
   gather_facts: no
 
-  tasks:
-    - name: shutdown the Linux servers
-      shell: sleep 10 && /sbin/shutdown -h now
-      async: 300
-      poll: 0
-      become: true
+# note: ansible Poll & Async module is needed for shutdown playbook to work without any warning or error becuase once the shutdown command
+# is executed then ansible won't be able to check the status of exectued command thus the trick is to use "sleep", "async" & "poll"
+
+
+#### commenting the task to prevent accidental usage.
+
+#  tasks:
+#    - name: shutdown the Linux servers
+#      shell: sleep 10 && /sbin/shutdown -h now
+#      async: 300
+#      poll: 0
+      
