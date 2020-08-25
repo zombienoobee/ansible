@@ -7,6 +7,6 @@
       path: /etc/sudoers
       state: present
       regexp: 'XxX'
-      line: 'chachacha ALL=(ALL) NOPASSWD: ALL'
+      line: '%chachacha ALL=(ALL) NOPASSWD: ALL'
       insertafter: EOF
       validate: 'visudo -cf %s'
