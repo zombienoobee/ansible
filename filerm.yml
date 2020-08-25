@@ -1,9 +1,0 @@
-# testing Ansible file module
-
-- name: run tasks on all hosts
-  hosts: all
-  tasks:
-    - name: ensure the directory is removed
-      file:                               # File module
-        path: /tmp/cent                   # required
-        state: absent                     # removes directory if present at the specified path
