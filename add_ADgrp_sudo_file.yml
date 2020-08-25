@@ -1,0 +1,13 @@
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+  - name: Make sure group wheel is not in the sudoers configuration
+    lineinfile:
+      path: /etc/sudoers
+      state: present
+      regexp: 'XxX'
+      line: '%DOMAIN\\ITadmins      ALL=(ALL) ALL'      # to add an AD group without any spaces
+#      line: '%DOMAIN\\Group\ Name\ With\ Spaces       ALL=(ALL) ALL'      # to add an AD group with any spaces
+      insertafter: EOF
+      validate: 'visudo -cf %s'
