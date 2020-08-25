@@ -2,11 +2,9 @@
   become: true
   become_user: root
   tasks:
-  - name: Make sure group wheel is not in the sudoers configuration
+  - name: Make sure this group is not in the sudoers configuration
     lineinfile:
       path: /etc/sudoers
       state: absent
-      regexp: 'XxX'
-      line: 'chachacha ALL=(ALL) NOPASSWD: ALL'
-      insertafter: EOF
+      regexp: '^chachacha ALL=(ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
