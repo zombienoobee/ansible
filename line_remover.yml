@@ -10,6 +10,6 @@
       backup: yes
       line: "{{ item }} "
     loop:
-      - "rssansbl"
+      - "^rssansbl"
       - "^nrpe"
       - "^%admins"
