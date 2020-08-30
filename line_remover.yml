@@ -6,11 +6,10 @@
     lineinfile:
       path: /etc/sudoers
       state: absent
+      validate: 'visudo -cf %s'
       backup: yes
-      regexp: " {{ item.regexp }} "
-      line: "{{ item.line }} "
-    with_items:
-      - { regexp: '^rssansbl ALL=(ALL) NOPASSWD: ALL' }
-      - { regexp: '^nrpe ALL=(ALL) NOPASSWD: ALL' }
-      - { regexp: '^%admins ALL=(ALL) NOPASSWD: ALL' }
-         
+      line: "{{ item }} "
+    loop:
+      - "rssansbl"
+      - "^nrpe"
+      - "^%admins"
