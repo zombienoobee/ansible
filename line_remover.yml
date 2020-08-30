@@ -7,7 +7,8 @@
       path: /etc/sudoers
       state: absent
       backup: yes
-      regexp: " {{ item.regexp }}
+      regexp: " {{ item.regexp }} "
+      line: "{{ item.line }} "
     with_items:
       - { regexp: '^rssansbl ALL=(ALL) NOPASSWD: ALL' }
       - { regexp: '^nrpe ALL=(ALL) NOPASSWD: ALL' }
