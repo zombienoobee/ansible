@@ -8,7 +8,7 @@
       state: absent
       validate: 'visudo -cf %s'
       backup: yes
-      line: "{{ item }} "
+      regexp: "{{ item }} "
     loop:
       - "^rssansbl"
       - "^nrpe"
