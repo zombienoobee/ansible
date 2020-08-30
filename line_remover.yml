@@ -4,10 +4,11 @@
   tasks:
   
   - name: replace line in file
-     path: /etc/sudoers
-     regexp: '#includedir /etc/sudoers.d'
-     replace: 'includedir /etc/sudoers.d'
-     backup: yes
+    replace:
+      path: /etc/sudoers
+      regexp: '#includedir /etc/sudoers.d'
+      replace: 'includedir /etc/sudoers.d'
+      backup: yes
      
 #  - name: Remove a line from the file
 #    lineinfile:
@@ -20,4 +21,3 @@
 #      - "^rssansbl"
 #      - "^nrpe"
 #      - "^%admins"     
-
