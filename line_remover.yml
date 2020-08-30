@@ -2,19 +2,22 @@
   become: true
   become_user: root
   tasks:
-  - name: Remove a line from the file
-    lineinfile:
-      path: /etc/sudoers
-      state: absent
-      backup: yes
-      validate: 'visudo -cf %s'
-      regexp: "{{ item }} "
-    loop:
-      - "^rssansbl"
-      - "^nrpe"
-      - "^%admins"
+  
+  - name: replace line in file
+     path: /etc/sudoers
+     regexp: '#includedir /etc/sudoers.d'
+     replace: 'includedir /etc/sudoers.d'
+     backup: yes
      
-# - name: replace a comment in sudoer file
-#    replace:
-#     path: /etc/sudoers
-#      regexp: '
+#  - name: Remove a line from the file
+#    lineinfile:
+#      path: /etc/sudoers
+#      state: absent
+#      backup: yes
+#      validate: /usr/sbin/visudo -csf %s
+#      regexp: "{{ item }} "
+#    loop:
+#      - "^rssansbl"
+#      - "^nrpe"
+#      - "^%admins"     
+
