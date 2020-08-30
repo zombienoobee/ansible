@@ -6,13 +6,14 @@
     lineinfile:
       path: /etc/sudoers
       state: absent
+      backup: yes
+      validate: 'visudo -cf %s'
       regexp: "{{ item }} "
     loop:
       - "^rssansbl"
       - "^nrpe"
       - "^%admins"
-      backup: yes
-      validate: 'visudo -cf %s'
+     
 # - name: replace a comment in sudoer file
 #    replace:
 #     path: /etc/sudoers
