@@ -1,0 +1,13 @@
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+  - name: Remove a line from the file
+    lineinfile:
+      path: /etc/sudoers
+      state: absent
+      regexp: |
+         '^rssansbl ALL=(ALL) NOPASSWD: ALL'
+         '^nrpe ALL=(ALL) NOPASSWD: ALL'
+         '^%admins ALL=(ALL) NOPASSWD: ALL'
+         
