@@ -6,6 +6,7 @@
     lineinfile:
       path: /etc/sudoers
       state: absent
+      backup: yes
       regexp: |
          '^rssansbl ALL=(ALL) NOPASSWD: ALL'
          '^nrpe ALL=(ALL) NOPASSWD: ALL'
