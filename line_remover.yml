@@ -6,8 +6,8 @@
   - name: replace line in file
     replace:
       path: /etc/sudoers
-      regexp: '#includedir /etc/sudoers.d'
-      replace: 'includedir /etc/sudoers.d'
+      regexp: 'includedir /etc/sudoers.d'
+      replace: '#includedir /etc/sudoers.d'
       backup: yes
      
 #  - name: Remove a line from the file
