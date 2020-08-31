@@ -4,6 +4,15 @@
   become_user: root
   tasks:
   
+  - name: touche a file if doesn't exist
+    file:
+      path: /etc/sudoers.d/rpbseqit
+      state: touch
+      mode: '1440'
+      modification_time: preserve
+      access_time: preserve
+            
+  
   - name: create a file using content
 #    copy:
 #      content: '# This file was moved to /etc/other.conf'
