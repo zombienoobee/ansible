@@ -1,8 +1,17 @@
-
- name: Copy using inline content
-  copy:
-    content: '# This file was moved to /etc/other.conf'
-    dest: /etc/mine.conf
-    
-    
-    
+- hosts: all
+  gather_facts: no
+  become: true
+  become_user: root
+  tasks:
+  
+  - name: create a file using content
+#    copy:
+#      content: '# This file was moved to /etc/other.conf'
+#      dest: /etc/mine.conf
+    blockinfile:
+      path: /etc/sudoers.d/rpbseqit
+      block: |
+        %RPBseqit_team ALL=(ALL) NOPASSWD:ALL
+        nrpe ALL=(ALL) NOPASSWD:ALL
+        rssansbl ALL=(ALL) NOPASSWD:ALL
+      
