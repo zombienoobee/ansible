@@ -1,0 +1,44 @@
+---
+- name: Centrify Adjoin Playbook
+  hosts: all
+  become: yes
+
+  vars:
+    ad_domain: "example.com"
+    ad_user: "admin_user"
+    ad_password: "YourSecurePassword"
+    ad_ou: "OU=Servers,DC=example,DC=com"
+
+  tasks:
+    - name: Install Centrify agent
+      yum:
+        name: centrifydc
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Install Centrify agent on Debian/Ubuntu
+      apt:
+        name: centrifydc
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Verify if machine is already joined to the domain
+      shell: "adinfo | grep -i 'Joined to domain'"
+      register: adinfo_output
+      failed_when: false
+      changed_when: false
+
+    - name: Join machine to Active Directory domain using Centrify
+      shell: "adjoin -w -u {{ ad_user }} -p '{{ ad_password }}' -c '{{ ad_ou }}' {{ ad_domain }}"
+      when: "'Joined to domain' not in adinfo_output.stdout"
+
+    - name: Restart Centrify services after joining domain
+      service:
+        name: centrifydc
+        state: restarted
+      when: "'Joined to domain' not in adinfo_output.stdout"
+
+    - name: Verify domain join
+      shell: "adinfo | grep -i 'Joined to domain'"
+      register: join_verify
+      failed_when: "'Joined to domain' not in join_verify.stdout"
